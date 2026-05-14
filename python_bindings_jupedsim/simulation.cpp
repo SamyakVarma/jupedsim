@@ -151,6 +151,7 @@ void init_simulation(py::module_& m)
             d["height"] = hm->Height();
             d["resolution"] = hm->Resolution();
             d["grid"] = hm->Grid();
+            d["smoke_grid"] = hm->SmokeGrid();
             
             py::dict bounds;
             bounds["xmin"] = hm->Bounds().xmin;
@@ -160,5 +161,8 @@ void init_simulation(py::module_& m)
             d["bounds"] = bounds;
             
             return d;
+        })
+        .def("add_smoke_source", [](Simulation& sim, std::tuple<double, double> pos, double rate) {
+            sim.AddSmokeSource(intoPoint(pos), rate);
         });
 }

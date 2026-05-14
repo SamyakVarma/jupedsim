@@ -50,6 +50,7 @@ class Simulation
     std::vector<GenericAgent::ID> _removedAgentsInLastIteration;
     std::unordered_map<Journey::ID, std::unique_ptr<Journey>> _journeys;
     std::unique_ptr<HeatMap> _heatMap;
+    std::vector<std::pair<Point, double>> _smokeSources;
     double _ambientTemp{20.0};
     PerfStats _perfStats{};
 
@@ -92,6 +93,10 @@ public:
     void SetAmbientTemperature(double temp) { _ambientTemp = temp; }
     double AmbientTemperature() const { return _ambientTemp; }
     const HeatMap* GetHeatMap() const { return _heatMap.get(); }
+    
+    void AddSmokeSource(Point pos, double rate) {
+        _smokeSources.push_back({pos, rate});
+    }
 
 private:
     void ValidateGeometry(const std::unique_ptr<CollisionGeometry>& geometry) const;

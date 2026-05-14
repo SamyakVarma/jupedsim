@@ -587,3 +587,12 @@ class Simulation:
             A dictionary containing width, height, resolution, grid values, and bounds.
         """
         return self._obj.get_heatmap()
+        
+    def add_smoke_source(self, pos: tuple[float, float], rate: float) -> None:
+        """Add a smoke source to the simulation.
+        
+        Arguments:
+            pos: Position of the smoke source.
+            rate: Rate of smoke emission.
+        """
+        self._obj.add_smoke_source(pos, rate)

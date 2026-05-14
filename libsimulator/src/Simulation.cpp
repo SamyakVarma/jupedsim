@@ -87,7 +87,21 @@ void Simulation::Iterate()
     
     // Update the heat map
     if (_heatMap) {
+        for (const auto& src : _smokeSources) {
+            _heatMap->AddSmoke(src.first, src.second * _clock.dT());
+        }
         _heatMap->Update(_clock.dT(), _agents, _ambientTemp);
+        
+        for (auto& agent : _agents) {
+            double smoke = _heatMap->GetSmoke(agent.pos);
+            if (smoke > 2.0) {
+                agent.stress += 0.02 * _clock.dT() * smoke;
+                if (agent.stress > 1.0) agent.stress = 1.0;
+                
+                agent.panic += 0.005 * _clock.dT() * smoke;
+                if (agent.panic > 1.0) agent.panic = 1.0;
+            }
+        }
     }
     
     _clock.Advance();
