@@ -340,6 +340,15 @@ class Simulation:
             position=parameters.position,
             orientation=orientation_or_zero(parameters),
             model=model,
+            type=getattr(parameters, "type", "male"),
+            heartbeat=getattr(parameters, "heartbeat", 70.0),
+            stress=getattr(parameters, "stress", 0.0),
+            panic=getattr(parameters, "panic", 0.0),
+            openness=getattr(parameters, "openness", 0.5),
+            conscientiousness=getattr(parameters, "conscientiousness", 0.5),
+            extraversion=getattr(parameters, "extraversion", 0.5),
+            agreeableness=getattr(parameters, "agreeableness", 0.5),
+            neuroticism=getattr(parameters, "neuroticism", 0.5),
         )
         return self._obj.add_agent(agent)
 

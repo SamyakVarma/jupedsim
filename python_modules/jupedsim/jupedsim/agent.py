@@ -102,6 +102,87 @@ class Agent:
         self._obj.target = target
 
     @property
+    def type(self) -> str:
+        """Type of the agent (e.g., 'male', 'female', 'child')."""
+        return self._obj.type
+
+    @type.setter
+    def type(self, type: str):
+        self._obj.type = type
+
+    @property
+    def heartbeat(self) -> float:
+        """Heartbeat of the agent in bpm."""
+        return self._obj.heartbeat
+
+    @heartbeat.setter
+    def heartbeat(self, val: float):
+        self._obj.heartbeat = val
+
+    @property
+    def stress(self) -> float:
+        """Stress level of the agent (0.0 to 1.0)."""
+        return self._obj.stress
+
+    @stress.setter
+    def stress(self, val: float):
+        self._obj.stress = val
+
+    @property
+    def panic(self) -> float:
+        """Panic level of the agent (0.0 to 1.0)."""
+        return self._obj.panic
+
+    @panic.setter
+    def panic(self, val: float):
+        self._obj.panic = val
+
+    @property
+    def openness(self) -> float:
+        """Openness trait of the agent (0.0 to 1.0)."""
+        return self._obj.openness
+
+    @openness.setter
+    def openness(self, val: float):
+        self._obj.openness = val
+
+    @property
+    def conscientiousness(self) -> float:
+        """Conscientiousness trait of the agent (0.0 to 1.0)."""
+        return self._obj.conscientiousness
+
+    @conscientiousness.setter
+    def conscientiousness(self, val: float):
+        self._obj.conscientiousness = val
+
+    @property
+    def extraversion(self) -> float:
+        """Extraversion trait of the agent (0.0 to 1.0)."""
+        return self._obj.extraversion
+
+    @extraversion.setter
+    def extraversion(self, val: float):
+        self._obj.extraversion = val
+
+    @property
+    def agreeableness(self) -> float:
+        """Agreeableness trait of the agent (0.0 to 1.0)."""
+        return self._obj.agreeableness
+
+    @agreeableness.setter
+    def agreeableness(self, val: float):
+        self._obj.agreeableness = val
+
+    @property
+    def neuroticism(self) -> float:
+        """Neuroticism trait of the agent (0.0 to 1.0)."""
+        return self._obj.neuroticism
+
+    @neuroticism.setter
+    def neuroticism(self, val: float):
+        self._obj.neuroticism = val
+
+    @property
     def model(
         self,
     ) -> (

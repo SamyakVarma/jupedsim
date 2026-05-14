@@ -86,6 +86,15 @@ class CollisionFreeSpeedModelV2AgentParameters:
         range_neighbor_repulsion: float = 0.1,
         strength_geometry_repulsion: float = 5.0,
         range_geometry_repulsion: float = 0.02,
+        type: str = "male",
+        heartbeat: float = 70.0,
+        stress: float = 0.0,
+        panic: float = 0.0,
+        openness: float = 0.5,
+        conscientiousness: float = 0.5,
+        extraversion: float = 0.5,
+        agreeableness: float = 0.5,
+        neuroticism: float = 0.5,
     ):
         self.position = position
         self.time_gap = time_gap
@@ -105,6 +114,15 @@ class CollisionFreeSpeedModelV2AgentParameters:
         self.range_neighbor_repulsion = range_neighbor_repulsion
         self.strength_geometry_repulsion = strength_geometry_repulsion
         self.range_geometry_repulsion = range_geometry_repulsion
+        self.type = type
+        self.heartbeat = heartbeat
+        self.stress = stress
+        self.panic = panic
+        self.openness = openness
+        self.conscientiousness = conscientiousness
+        self.extraversion = extraversion
+        self.agreeableness = agreeableness
+        self.neuroticism = neuroticism
 
     @property
     @deprecated("deprecated, use 'desired_speed' instead.")

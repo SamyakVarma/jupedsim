@@ -30,7 +30,7 @@ public:
         _ambientTemp = ambientTemp;
         // 1. Heat emission from agents
         for (const auto& agent : agents) {
-            AddHeat(agent.pos, 100.0 * dT); // Each agent emits 100 units of heat per second
+            AddHeat(agent.pos, 30.0 * dT); // Each agent emits 30 units of heat per second
         }
 
         // 2. Heat dissipation (diffusion and equilibration with ambient)

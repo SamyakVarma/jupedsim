@@ -33,6 +33,19 @@ struct GenericAgent {
     Point orientation{};
     double fatigue{0.0};
     double fatigue_rate{0.0};
+    std::string type{"male"};
+    
+    // Physiological & Psychological parameters
+    double heartbeat{70.0};
+    double stress{0.0};
+    double panic{0.0};
+    
+    // OCEAN Traits (0.0 to 1.0)
+    double openness{0.5};
+    double conscientiousness{0.5};
+    double extraversion{0.5};
+    double agreeableness{0.5};
+    double neuroticism{0.5};
 
     using Model = std::variant<
         GeneralizedCentrifugalForceModelData,
@@ -70,17 +83,22 @@ struct fmt::formatter<GenericAgent> {
             [&ctx, &agent](const auto& m) {
                 return fmt::format_to(
                     ctx.out(),
-                    "Agent[id={}, journey={}, stage={}, destination={}, waypoint={}, pos={}, "
-                    "orientation={}, fatigue={:.2f}, fatigue_rate={:.4f}, model={})",
+                    "Agent[id={}, journey={}, stage={}, pos={}, type={}, "
+                    "heartbeat={:.1f}, stress={:.2f}, panic={:.2f}, "
+                    "O={:.2f}, C={:.2f}, E={:.2f}, A={:.2f}, N={:.2f}, model={})",
                     agent.id,
                     agent.journeyId,
                     agent.stageId,
-                    agent.destination,
-                    agent.target,
                     agent.pos,
-                    agent.orientation,
-                    agent.fatigue,
-                    agent.fatigue_rate,
+                    agent.type,
+                    agent.heartbeat,
+                    agent.stress,
+                    agent.panic,
+                    agent.openness,
+                    agent.conscientiousness,
+                    agent.extraversion,
+                    agent.agreeableness,
+                    agent.neuroticism,
                     m);
             },
             agent.model);
